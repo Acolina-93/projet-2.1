@@ -4,17 +4,14 @@
 class Player : public Entity
 {
 
-
 public:
 
-	int hp = 0;
-	Vector2 position;
-
-	Player(int hp, Vector2 pos) : hp(hp), position(pos) {}
+	Player(int hp, Vector2 pos);
 	int GetHP() const override;
 	int Maxhp() const override;
 	void Move(Vector2 dir) override;
-
+	Vector2 GetPosition() const override;
 
 };
+
 

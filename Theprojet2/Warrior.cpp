@@ -2,8 +2,12 @@
 #include <iostream>
 #include "Vector2.h"
 
-
-void Warrior::Move(Vector2 dir)
+int Warrior::GetHP() const
 {
-    // déplacement du warrior
+	return hp;
+}
+
+int Warrior::Maxhp() const
+{
+	return 1; 
 }

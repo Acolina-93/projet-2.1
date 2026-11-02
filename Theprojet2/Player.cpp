@@ -19,3 +19,8 @@ void Player::Move(Vector2 dir)
 	//Vector2 newPos = player.pos + dir;
 	
 }
+
+Vector2 Player::GetPosition() const
+{
+	return position;
+}

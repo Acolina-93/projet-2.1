@@ -3,9 +3,20 @@
 #include <iostream>
 #include "Vector2.h"
 
+void Player::move(Vector2 dir) {
 
+	// Update the player's position based on the direction
+	// Implementation for moving the player
+
+		
+	position = position + dir; // ou Move(dir) hérité d'Entity
+	
+};
 
 Player::Direction Player::InputToDirection(int key) {
+
+	// Map the input key to a direction
+
 	switch (key) {
 	case 'z':
 	case 'Z':
@@ -24,7 +35,11 @@ Player::Direction Player::InputToDirection(int key) {
 }
 
 void Player::ApplyDirection(Direction direction, Vector2& pos) {
+
+	// Update the position based on the direction
+
 	switch (direction) {
+
 	case UP:
 		pos.y--;
 		break;
@@ -41,3 +56,4 @@ void Player::ApplyDirection(Direction direction, Vector2& pos) {
 		break;
 	}
 }
+

@@ -6,13 +6,16 @@
 #include "Player.h"
 #include "Warrior.h"
 #include "Mage.h"
+#include "Game.h"
 
 int main()
 {
 
+    Game* game = Game::getInstance();
+  
+    game->Run();
 
-   // Game* game = Game::GetInstance();
-    //game->Run();
+	// delete game;
     // on oublie pas de delete dans le destructeur
     return 0;
 }

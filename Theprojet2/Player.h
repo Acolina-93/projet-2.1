@@ -5,9 +5,10 @@ class Player : public Entity
 {
 	
 public:
-	enum Direction { UP = 0, DOWN, LEFT, RIGHT, NONE };
-	Player(int hp, int maxHp, Vector2 pos, char cell) : Entity(hp, maxHp, pos, cell) {}
 
+	Player(int hp, int maxHp, Vector2 pos, char cell) : Entity(hp, maxHp, pos, cell) {}
+	enum Direction { UP = 0, DOWN, LEFT, RIGHT, NONE };
+	virtual void move(Vector2 dir);
 	Direction InputToDirection(int key);
 	void ApplyDirection(Direction direction, Vector2& pos);
 };

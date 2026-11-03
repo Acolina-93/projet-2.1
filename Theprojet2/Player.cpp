@@ -1,26 +1,43 @@
 #include "Player.h"
+#include <conio.h> 
 #include <iostream>
 #include "Vector2.h"
 
 
 
-int Player::GetHP() const
-{
-	return hp;
+Player::Direction Player::InputToDirection(int key) {
+	switch (key) {
+	case 'z':
+	case 'Z':
+		return UP;
+	case 's':
+	case 'S':
+		return DOWN;
+	case 'q':
+	case 'Q':
+		return LEFT;
+	case 'd':
+	case 'D':
+		return RIGHT;
+	}
+	return NONE;
 }
 
-int Player::Maxhp() const
-{
-	return 100; // Assuming maximum HP is 100
-}
-
-void Player::Move(Vector2 dir)
-{
-	//Vector2 newPos = player.pos + dir;
-	
-}
-
-Vector2 Player::GetPosition() const
-{
-	return position;
+void Player::ApplyDirection(Direction direction, Vector2& pos) {
+	switch (direction) {
+	case UP:
+		pos.y--;
+		break;
+	case DOWN:
+		pos.y++;
+		break;
+	case LEFT:
+		pos.x--;
+		break;
+	case RIGHT:
+		pos.x++;
+		break;
+	case NONE:
+		break;
+	}
 }

@@ -4,13 +4,15 @@
 class Mage : public Player
 {
 
+
 public:
 
-	Mage(int hp, Vector2 pos) : Player(hp, pos) {}
-	int GetHP() const override;
-	int Maxhp() const override;
-	void Move(Vector2 dir) override;
-
-
+	Mage(int hp, int maxHp, Vector2 pos, char cell) : Player(hp, maxHp, pos, cell) {}
+	void onUpdate() override {
+		// Implement Mage-specific update logic here
+	}
+	void onCollision(Entity* other) override {
+		// Implement Mage-specific collision logic here
+	}
 };
 

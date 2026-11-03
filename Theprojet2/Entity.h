@@ -7,21 +7,24 @@ class Entity
 protected:
 
 	int hp = 0;
+	int maxHp = 0;
+	char cell = 'E';
 	Vector2 position;
 
 public:
 
 	
-	virtual int GetHP() const = 0;
-	virtual int Maxhp() const = 0;
-	virtual void Move(Vector2 dir) = 0;
-	virtual Vector2 GetPosition() const = 0;
-
+	int GetHP() const;
+	int Maxhp() const;
+	void Move(Vector2 dir) ;
+	Vector2 GetPosition() const ;
+	void applyDamage(int damage);
+	bool isAlive() const;
 	virtual void onUpdate() = 0;
 	virtual void onCollision(Entity* other) = 0;
-	virtual void applyDamage(int damage) = 0;
-	virtual bool isAlive() const = 0;
+	
 
+	Entity(int hp, int maxHp, Vector2 pos, char cell) : hp(hp), maxHp(maxHp), position(pos), cell(cell) {}
 	virtual ~Entity() = default;
 
 };

@@ -1,17 +1,11 @@
 #include "Warrior.h"
-#include <iostream>
-#include <conio.h> // Indispensable pour _kbhit() et _getch()
-#include "Vector2.h"
 #include "Player.h"
+#include "Vector2.h"
+#include <conio.h> // Indispensable pour _kbhit() et _getch()
+#include <iostream>
 
-
-void Warrior::onUpdate() {
-
-	if (_kbhit()) {
-		char key = _getch(); // Utilisation de _getch() pour capturer la touche pressée
-
-		Direction direction = InputToDirection(key);
-		ApplyDirection(direction, position);
-		// Implement Warrior-specific update logic here
-	}
+void Warrior::onCollision(Entity *other)
+{
+    // Implement Warrior-specific collision logic here
+    // If the Warrior collides with an enemy, he lost 1 hp and the enemy lost 1 hp too
 }

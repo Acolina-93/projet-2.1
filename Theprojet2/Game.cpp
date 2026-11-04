@@ -1,33 +1,35 @@
 #include "Game.h"
-#include <iostream>
+#include "Mage.h"
 #include "Player.h"
 #include "Warrior.h"
-#include "Mage.h"
+#include <iostream>
 
-Game* Game::instance = nullptr;
+Game *Game::instance = nullptr;
 
-Game::Game() {
-	// Initialize game state here
-	player = new Warrior(100, 100, Vector2(0, 0), 'W');
+Game::Game()
+{
+    // Initialize game state here
+    player = new Warrior(3, 3, Vector2(0, 0), 'W');
 }
 
-Game* Game::getInstance() {
+Game *Game::getInstance()
+{
 
-    if (instance == nullptr) {
+    if (instance == nullptr)
+    {
         instance = new Game();
     }
     return instance;
 }
 
-void Game::Run() {
+void Game::Run()
+{
 
-	// Main game loop
+    // Main game loop
 
-	// Display map , handle input, update entities, check collisions, etc.
+    // Display map , handle input, update entities, check collisions, etc.
 
-	// joueur.onupdate(); 
+    // joueur.onupdate();
 
-	// gameover();
-
-	
+    // gameover();
 }

@@ -1,6 +1,8 @@
 #pragma once
 #include "Entity.h"
 #include "Vector2.h"
+#include "Enemy.h"
+#include "Map.h"
 class Player : public Entity
 {
 
@@ -17,11 +19,10 @@ public:
         NONE
     };
 
-    void Move(Vector2 dir) override;
-  
+    bool Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy) override;
+
     Direction InputToDirection(int key);
     void ApplyDirection(Direction direction, Vector2 &pos);
 
     virtual void onUpdate();
-  
 };

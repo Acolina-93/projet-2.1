@@ -1,4 +1,6 @@
 #include "Player.h"
+#include "Enemy.h"
+#include "Map.h"
 #include "Vector2.h"
 #include <conio.h>
 #include <iostream>
@@ -49,6 +51,29 @@ void Player::ApplyDirection(Direction direction, Vector2 &pos)
     case NONE:
         break;
     }
+}
+
+bool Player::Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy)
+{
+    Vector2 newPos = player.position;
+    newPos.x += dir.x; // override + operator for less code
+    newPos.y += dir.y;
+
+    // Borders check
+    if (newPos.x < 0 || newPos.x >= map.WIDTH || newPos.y < 0 || newPos.y >= map.HEIGHT)
+        return false;
+
+    /* int mapIndex = get1DCell(newPos, map.WIDTH);
+    int cellType = map.cells[mapIndex];
+
+    if (!g_cellInfos[cellType].isWalkable)
+        return false;
+
+    if (characterMoveCollision(character, newPos, characters))
+        return false;*/
+
+    player.position = newPos;
+    return true;
 }
 
 void Player::onUpdate()

@@ -13,7 +13,7 @@ protected:
 public:
 	int GetHP() const;
 	int Maxhp() const;
-	virtual void Move(Vector2 dir);
+    virtual bool Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy) = 0;
 	Vector2 GetPosition() const;
 	void applyDamage(int damage);
 	bool isAlive() const;

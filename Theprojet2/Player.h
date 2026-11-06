@@ -3,13 +3,16 @@
 #include "Vector2.h"
 #include "Enemy.h"
 #include "Map.h"
-class Player : public Entity
+
+
+class Player
 {
 
 public:
-    Player(int hp, int maxHp, Vector2 pos, char cell) : Entity(hp, maxHp, pos, cell)
+    Player(int hp, int maxHp, Vector2 pos, char cell)/* : Entity(hp, maxHp, pos, cell)*/
     {
     }
+    Vector2 playerPosition = Vector2(0, 0);
     enum Direction
     {
         UP = 0,
@@ -19,7 +22,7 @@ public:
         NONE
     };
 
-    bool Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy) override;
+    void Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy);
 
     Direction InputToDirection(int key);
     void ApplyDirection(Direction direction, Vector2 &pos);

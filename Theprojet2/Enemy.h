@@ -3,13 +3,13 @@
 #include "Vector2.h"
 #include <iostream>
 
-class Enemy : public Entity
+class Enemy
 {
 public:
-    Enemy(int hp, int maxHp, Vector2 pos, char cell) : Entity(hp, maxHp, pos, cell)
-    {
-    }
-    void Move(Vector2 dir);
+
+	Enemy(int hp, int maxHp, Vector2 pos, char cell) : Entity(hp, maxHp, pos, cell)
+	{
+	}
 };
 
 // test txt

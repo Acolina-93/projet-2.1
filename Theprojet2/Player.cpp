@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Map.h"
+#include "Entity.h"
 #include "Vector2.h"
 #include <conio.h>
 #include <iostream>
@@ -53,15 +54,15 @@ void Player::ApplyDirection(Direction direction, Vector2 &pos)
     }
 }
 
-bool Player::Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy)
+void Player::Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy)
 {
-    Vector2 newPos = player.position;
+    Vector2 newPos = player.playerPosition;
     newPos.x += dir.x; // override + operator for less code
     newPos.y += dir.y;
 
     // Borders check
     if (newPos.x < 0 || newPos.x >= map.WIDTH || newPos.y < 0 || newPos.y >= map.HEIGHT)
-        return false;
+       
 
     /* int mapIndex = get1DCell(newPos, map.WIDTH);
     int cellType = map.cells[mapIndex];
@@ -72,8 +73,8 @@ bool Player::Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy)
     if (characterMoveCollision(character, newPos, characters))
         return false;*/
 
-    player.position = newPos;
-    return true;
+    player.playerPosition = newPos;
+
 }
 
 void Player::onUpdate()
@@ -82,5 +83,5 @@ void Player::onUpdate()
     char key = _getch(); // Utilisation de _getch() pour capturer la touche pressée
     Direction direction = InputToDirection(key);
 
-    ApplyDirection(direction, position); // call after verify collision
+    ApplyDirection(direction, playerPosition); // call after verify collision
 }

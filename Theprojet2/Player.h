@@ -1,18 +1,16 @@
 #pragma once
 #include "Entity.h"
 #include "Vector2.h"
-#include "Enemy.h"
-#include "Map.h"
 
 
 class Player
 {
 
 public:
-    Player(int hp, int maxHp, Vector2 pos, char cell)/* : Entity(hp, maxHp, pos, cell)*/
+    Player(int hp, int maxHp, Vector2 pos, char cell) /* : Entity(hp, maxHp, pos, cell)*/
     {
     }
-    Vector2 playerPosition = Vector2(0, 0);
+    Vector2 playerPosition = Vector2{0, 0};
     enum Direction
     {
         UP = 0,

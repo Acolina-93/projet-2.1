@@ -2,7 +2,7 @@
 #include "Vector2.h"
 #include "Player.h"
 #include <vector>
-// tgghhhyyjy
+
 
 enum class Tile { Ground, Water, Mountain, Exit };
 

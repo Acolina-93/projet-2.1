@@ -29,7 +29,7 @@ void Game::Run()
 
     // Display map , handle input, update entities, check collisions, etc.
 
-    // joueur.onupdate();
+    // entities.onupdate();
 
     // gameover();
 }

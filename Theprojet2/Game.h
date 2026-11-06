@@ -2,6 +2,8 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Vector2.h"
+#include "Map.h"
+
 class Game
 {
 
@@ -10,6 +12,8 @@ public:
 	void Run();
 
 private:
+    Map map;
+
 	Game(); // privé
 
 	static Game* instance; // l'unique exemplaire

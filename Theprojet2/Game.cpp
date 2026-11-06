@@ -24,7 +24,36 @@ Game *Game::getInstance()
 
 void Game::Run()
 {
+    // Charger le niveau 0 (le premier)
+    map.Load(0);
 
+    // Récupérer où placer le joueur
+    Vector2 start = map.GetPlayerStart();
+    Player *player = new Warrior(100, start);
+
+    // Créer un ennemi par point d'apparition
+    for (const Vector2 &spawn : map.GetEnemySpawns())
+    {
+        entities.push_back(new Zombie(spawn));
+    }
+
+    // Tester un déplacement
+    Vector2 newPos = playerPosi() + Vector2(1, 0);
+    if (map.CanEnter(newPos))
+    {
+        // le déplacement est autorisé
+    }
+
+    // Un nageur peut entrer dans l'eau
+    if (map.CanEnter(newPos, true))
+    { /* ... */
+    }
+
+    // Sortie atteinte ?
+    if (map.IsExit(player->GetPosition()))
+    {
+        map.Load(1); // niveau suivant
+    }
 
 
 

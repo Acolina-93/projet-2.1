@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "Vector2.h"
+#include "Map.h"
 
 
 class Player

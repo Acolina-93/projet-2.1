@@ -7,7 +7,7 @@ class Enemy
 {
 public:
 
-	Enemy(int hp, int maxHp, Vector2 pos, char cell) : Entity(hp, maxHp, pos, cell)
+	Enemy(int hp, int maxHp, Vector2 pos, char cell) 
 	{
 	}
 };

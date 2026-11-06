@@ -24,10 +24,8 @@ Game *Game::getInstance()
 
 void Game::Run()
 {
-
-
-
-
+    
+    Map map{};
     // Main game loop
 
     // Display map , handle input, update entities, check collisions, etc.
@@ -35,4 +33,5 @@ void Game::Run()
     // entities.onupdate();
 
     // gameover();
+
 }

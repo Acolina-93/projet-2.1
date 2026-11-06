@@ -7,7 +7,8 @@ class Player
 {
 
 public:
-    Player(int hp, int maxHp, Vector2 pos, char cell) /* : Entity(hp, maxHp, pos, cell)*/
+
+    Player(int hp, int maxHp, Vector2 pos, char cell)
     {
     }
     Vector2 playerPosition = Vector2{0, 0};

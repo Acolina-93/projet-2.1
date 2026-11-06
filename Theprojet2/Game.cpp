@@ -25,6 +25,9 @@ Game *Game::getInstance()
 void Game::Run()
 {
 
+
+
+
     // Main game loop
 
     // Display map , handle input, update entities, check collisions, etc.

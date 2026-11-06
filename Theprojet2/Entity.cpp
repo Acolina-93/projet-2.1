@@ -13,10 +13,6 @@ int Entity::Maxhp() const
     return maxHp;
 }
 
-void Entity::Move(Vector2 dir)
-{
-    position = position + dir;
-}
 
 Vector2 Entity::GetPosition() const
 {

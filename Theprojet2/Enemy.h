@@ -3,11 +3,11 @@
 #include "Entity.h"
 #include "Vector2.h"
 
-class Enemy : public Entity
+class Enemy
 {
 public:
 
-	Enemy(int hp, int maxHp, Vector2 pos, char cell) : Entity(hp, maxHp, pos, cell)
+	Enemy(int hp, int maxHp, Vector2 pos, char cell)
 	{
 	}
 };

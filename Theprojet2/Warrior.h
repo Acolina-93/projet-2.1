@@ -9,5 +9,5 @@ public:
 	{
 	}
 
-	void onCollision(Entity* other) override;
+	void onCollision(Entity* other);
 };

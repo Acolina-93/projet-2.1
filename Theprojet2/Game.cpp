@@ -29,9 +29,19 @@ void Game::Run()
 
     // Récupérer où placer le joueur
     Vector2 start = map.GetPlayerStart();
+    Vector2 startenemy = map.GetEnemySpawns()[0];
     Warrior warrior(3, 3, start, 'W');
+    ZombieSwimmer tab[1] = { ZombieSwimmer(5, 5, startenemy, 'E') };
 
-    // Créer un ennemi par point d'apparition
+    bool isRunning = true;
+
+    // Boucle principale du jeu
+    while (isRunning)
+    {
+
+    
+    }
+    /*// Créer un ennemi par point d'apparition
     for (const Vector2 &spawn : map.GetEnemySpawns())
     {
         entities.push_back(new Zombie(spawn));
@@ -46,7 +56,7 @@ void Game::Run()
 
     // Un nageur peut entrer dans l'eau
     if (map.CanEnter(newPos, true))
-    { /* ... */
+    { 
     }
 
     // Sortie atteinte ?
@@ -54,7 +64,7 @@ void Game::Run()
     {
         map.Load(1); // niveau suivant
     }
-
+    */
 
 
     // Main game loop

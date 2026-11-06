@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "Vector2.h"
 #include "Map.h"
-
+#include "ZombieSwimmer.h"
 class Game
 {
 
@@ -19,6 +19,7 @@ private:
 	static Game* instance; // l'unique exemplaire
 
 	Player* player = nullptr;
+
 	~Game()
 	{
 		delete player;

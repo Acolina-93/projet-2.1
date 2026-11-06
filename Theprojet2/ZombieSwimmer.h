@@ -4,11 +4,9 @@
 class ZombieSwimmer : public Enemy
 {
 public:
+    ZombieSwimmer(int hp, int maxHp, Vector2 pos, char cell) : Enemy(hp, maxHp, pos, cell)
+    {
+    }
 
-	ZombieSwimmer(int hp, int maxHp, Vector2 pos, char cell) : Enemy(hp, maxHp, pos, cell)
-	{
-	}
-
-	//void onUpdate() override;
+    // void onUpdate() override;
 };
-

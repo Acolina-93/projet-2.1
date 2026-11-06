@@ -13,7 +13,7 @@ protected:
 public:
 	int GetHP() const;
 	int Maxhp() const;
-	void Move(Vector2 dir);
+	virtual void Move(Vector2 dir);
 	Vector2 GetPosition() const;
 	void applyDamage(int damage);
 	bool isAlive() const;

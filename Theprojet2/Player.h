@@ -16,6 +16,8 @@ public:
         RIGHT,
         NONE
     };
+
+    void Move(Vector2 dir) override;
   
     Direction InputToDirection(int key);
     void ApplyDirection(Direction direction, Vector2 &pos);

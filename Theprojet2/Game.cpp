@@ -29,7 +29,7 @@ void Game::Run()
 
     // Récupérer où placer le joueur
     Vector2 start = map.GetPlayerStart();
-    Player *player = new Warrior(100, start);
+    Warrior warrior(3, 3, start, 'W');
 
     // Créer un ennemi par point d'apparition
     for (const Vector2 &spawn : map.GetEnemySpawns())

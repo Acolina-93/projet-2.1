@@ -1,15 +1,15 @@
 #pragma once
-#include <iostream>
 #include "Entity.h"
 #include "Vector2.h"
+#include <iostream>
 
 class Enemy
 {
 public:
 
-	Enemy(int hp, int maxHp, Vector2 pos, char cell)
+	Enemy(int hp, int maxHp, Vector2 pos, char cell) : Entity(hp, maxHp, pos, cell)
 	{
 	}
 };
 
-//test txt
+// test txt

@@ -57,7 +57,7 @@ void Player::ApplyDirection(Direction direction, Vector2 &pos)
 void Player::Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy)
 {
    // Vector2 dir = Direction InputToDirection(int key);
-    Vector2 newPos = player.playerPosition;
+    Vector2 newPos = player.position;
     newPos.x += dir.x; // override + operator for less code
     newPos.y += dir.y;
 
@@ -74,7 +74,7 @@ void Player::Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy)
     if (characterMoveCollision(character, newPos, characters))
         return false;*/
 
-    player.playerPosition = newPos;
+    player.position = newPos;
 
 }
 

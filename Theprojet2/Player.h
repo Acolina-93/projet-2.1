@@ -4,15 +4,15 @@
 #include "Map.h"
 
 
-class Player
+class Player : public Entity    
 {
 
 public:
 
-    Player(int hp, int maxHp, Vector2 pos, char cell)
+    Player(int hp, int maxHp, Vector2 pos, char cell) : Entity(hp, maxHp, pos, cell)
     {
     }
-    Vector2 playerPosition = Vector2{0, 0};
+    
     enum Direction
     {
         UP = 0,

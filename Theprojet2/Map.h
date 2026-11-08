@@ -1,9 +1,7 @@
 #pragma once
 #include "Vector2.h"
-#include "Player.h"
 #include <vector>
 #include <cstdlib>
-#include "ZombieSwimmer.h"
 #include <iostream>
 
 enum class Tile { Ground, Water, Mountain, Exit };
@@ -27,7 +25,7 @@ public:
 
 	Vector2 GetPlayerStart() const;
 	const std::vector<Vector2>& GetEnemySpawns() const;
-	void display_map(Map &map, Player &player, ZombieSwimmer tab[]);
+
 
 private:
 	Tile Tiles[HEIGHT][WIDTH];

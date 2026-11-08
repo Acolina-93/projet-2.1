@@ -49,6 +49,7 @@ Vector2 Player::DirectionToVector(Direction direction)
     case NONE:
         return Vector2(0, 0);
     }
+    return Vector2(0, 0);
 }
 /*
 void Player::Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy)
@@ -78,10 +79,12 @@ void Player::Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy)
 void Player::onUpdate()
 {
 
-    char key = _getch(); // Utilisation de _getch() pour capturer la touche pressée
-    Direction direction = InputToDirection(key);
-    Vector2 dir = DirectionToVector(direction);
-
-  
+   if (_kbhit()) // Vérifie si une touche a été pressée sans bloquer le jeu
+    {
+        char key = _getch();
+        Direction direction = InputToDirection(key);
+        Vector2 dir = DirectionToVector(direction);
+        Move(dir, Game::getInstance()->GetMap());
+    }
     
 }

@@ -10,6 +10,12 @@ class Game
 public:
 	static Game* getInstance();
 	void Run();
+    const Map &GetMap() const
+    {
+        return map;
+    }
+    char GetSymbolAt(Vector2 pos) const;
+    void Display();
    
 private:
     Map map;

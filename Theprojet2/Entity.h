@@ -19,6 +19,14 @@ public:
         : hp(hp), maxHp(maxHp), position(pos), cell(cell)
     {
     }
+    char GetCell() const
+    {
+        return cell;
+    }
+    void SetPosition(Vector2 pos)
+    {
+        position = pos;
+    }
     int GetHP() const;
     int Maxhp() const;
     void Move(const Vector2 &dir, const Map &map);

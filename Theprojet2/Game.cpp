@@ -4,8 +4,6 @@
 #include "Warrior.h"
 #include <iostream>
 
-
-
 Game *Game::instance = nullptr;
 
 char Game::GetSymbolAt(Vector2 pos) const
@@ -18,8 +16,6 @@ char Game::GetSymbolAt(Vector2 pos) const
 }
 Game ::Game()
 {
-   
-
 }
 Game *Game::getInstance()
 {
@@ -40,51 +36,47 @@ void Game::display()
     }
 }
 
+// CODE CORRIGÉ
 void Game::run()
 {
-
     int currentLevel = 0;
     map.Load(currentLevel);
 
-    // Joueur créé une seule fois avec le point de départ de la carte
-    player = new Warrior(100, 100, map.GetPlayerStart(), 'W');
-    std::vector<Enemy*> enemies;
+    player = new Warrior(5, 5, map.GetPlayerStart(), 'W');
     bool isRunning = true;
 
     display();
-    // Boucle principale du jeu
+
     while (isRunning)
     {
-       
-
         if (player != nullptr && player->isAlive())
         {
-            player->onUpdate(); // Attend la touche et déplace le joueur
+            player->onUpdate();
             display();
-        }
-        // TODO (Binôme) : Mettre à jour la liste des ennemis ici
 
+            // Vérification de la sortie au même tour
+            if (map.IsExit(player->getPosition()))
+            {
+                ++currentLevel;
+                if (currentLevel < Map::LEVEL_COUNT)
+                {
+                    map.Load(currentLevel);
+                    player->SetPosition(map.GetPlayerStart());
+                    display();
+                }
+                else
+                {
+                    display();
+                    std::cout << "\nVICTOIRE !\n";
+                    isRunning = false;
+                }
+            }
+        }
         else if (player != nullptr && !player->isAlive())
         {
             display();
             std::cout << "\nGAME OVER !\n";
             isRunning = false;
         }
-        else if (player != nullptr && map.IsExit(player->getPosition()))
-        {
-            ++currentLevel;
-            if (currentLevel < Map::LEVEL_COUNT)
-            {
-                map.Load(currentLevel);
-                player->SetPosition(map.GetPlayerStart());
-            }
-            else
-            {
-                display();
-                std::cout << "\nVICTOIRE !\n";
-                isRunning = false;
-            }
-        }
     }
-
 }

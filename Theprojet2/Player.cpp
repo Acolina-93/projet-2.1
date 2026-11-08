@@ -1,6 +1,6 @@
 #include "Player.h"
 #include "Game.h"
-#include <conio.h>
+#include <conio.h> // Indispensable pour _kbhit() et _getch()
 #include <iostream>
 
 Player::Direction Player::InputToDirection(char key)

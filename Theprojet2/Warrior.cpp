@@ -1,7 +1,6 @@
 #include "Warrior.h"
 #include "Player.h"
 #include "Vector2.h"
-#include <conio.h> // Indispensable pour _kbhit() et _getch()
 #include <iostream>
 
 void Warrior::onCollision(Entity *other)

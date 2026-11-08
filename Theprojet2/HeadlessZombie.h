@@ -8,5 +8,5 @@ public:
         : Enemy(hp, maxHp, pos, cell)
     {
     }
-    // void onUpdate() override;
+
 };

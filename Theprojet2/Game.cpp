@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "Warrior.h"
 #include <iostream>
-#include <windows.h>
+
 
 
 Game *Game::instance = nullptr;
@@ -48,6 +48,7 @@ void Game::run()
 
     // Joueur créé une seule fois avec le point de départ de la carte
     player = new Warrior(100, 100, map.GetPlayerStart(), 'W');
+    std::vector<Enemy*> enemies;
     bool isRunning = true;
 
     display();

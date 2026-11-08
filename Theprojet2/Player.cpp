@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Enemy.h"
+#include "Game.h"
 #include "Map.h"
 #include "Entity.h"
 #include "Vector2.h"
@@ -29,7 +30,7 @@ Player::Direction Player::InputToDirection(char key)
     return NONE;
 }
 
-void Player::ApplyDirection(Direction direction)
+Vector2 Player::DirectionToVector(Direction direction)
 {
 
     // Update the position based on the direction
@@ -38,19 +39,15 @@ void Player::ApplyDirection(Direction direction)
     {
 
     case UP:
-        position.y--;
-        break;
+        return Vector2(0, -1);
     case DOWN:
-        position.y++;
-        break;
+        return Vector2(0, 1);
     case LEFT:
-        position.x--;
-        break;
+        return Vector2(-1, 0);
     case RIGHT:
-        position.x++;
-        break;
+        return Vector2(1, 0);
     case NONE:
-        break;
+        return Vector2(0, 0);
     }
 }
 /*
@@ -83,6 +80,8 @@ void Player::onUpdate()
 
     char key = _getch(); // Utilisation de _getch() pour capturer la touche pressée
     Direction direction = InputToDirection(key);
+    Vector2 dir = DirectionToVector(direction);
 
-    ApplyDirection(direction); // call after verify collision
+  
+    
 }

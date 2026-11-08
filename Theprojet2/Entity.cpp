@@ -13,13 +13,19 @@ int Entity::Maxhp() const
     return maxHp;
 }
 
-void Entity::Move(Vector2 &dir, const Map &map)
+void Entity::Move(const Vector2 &dir, const Map &map)
 {
 
-    Vector2 newPos = position + dir;
-    map.IsInside(newPos);
-    map.CanEnter(newPos, false);
+    Vector2 Newpos = position + dir;
+
+    if (!map.CanEnter(Newpos, false))
+    {
+    }
     
+    else
+    {
+        position = Newpos;
+    }
     
 }
 Vector2 Entity::GetPosition() const

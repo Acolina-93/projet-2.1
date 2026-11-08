@@ -4,6 +4,7 @@
 #include "Map.h"
 
 
+
 class Player : public Entity    
 {
 
@@ -23,7 +24,7 @@ public:
     };
 
     Direction InputToDirection(char key);
-    void ApplyDirection(Direction direction);
+    Vector2 DirectionToVector(Direction direction);
 
    void onUpdate() override;
 };

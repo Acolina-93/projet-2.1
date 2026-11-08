@@ -10,9 +10,9 @@ class Game
 public:
 	static Game* getInstance();
 	void Run();
-
+   
 private:
-
+    Map map;
 	Game(); // privé
 
 	static Game* instance; // l'unique exemplaire

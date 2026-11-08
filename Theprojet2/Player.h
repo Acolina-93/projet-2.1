@@ -22,8 +22,8 @@ public:
         NONE
     };
 
-    Direction InputToDirection(int key);
+    Direction InputToDirection(char key);
     void ApplyDirection(Direction direction);
 
-    virtual void onUpdate();
+   void onUpdate() override;
 };

@@ -6,7 +6,7 @@
 #include <conio.h>
 #include <iostream>
 
-Player::Direction Player::InputToDirection(int key)
+Player::Direction Player::InputToDirection(char key)
 {
 
     // Map the input key to a direction

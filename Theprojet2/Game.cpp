@@ -33,11 +33,13 @@ void Game::Run()
     Vector2 startenemy = map.GetEnemySpawns()[0];
     Warrior warrior(3, 3, start, 'W');
 
+
     bool isRunning = true;
 
     // Boucle principale du jeu
     while (isRunning)
     {
+        // system("cls");
     }
     /*// Créer un ennemi par point d'apparition
     for (const Vector2 &spawn : map.GetEnemySpawns())

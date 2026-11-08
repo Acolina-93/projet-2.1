@@ -24,6 +24,7 @@ Game *Game::getInstance()
 
 void Game::Run()
 {
+    Map map;
     // Charger le niveau 0 (le premier)
     map.Load(0);
 
@@ -31,15 +32,12 @@ void Game::Run()
     Vector2 start = map.GetPlayerStart();
     Vector2 startenemy = map.GetEnemySpawns()[0];
     Warrior warrior(3, 3, start, 'W');
-    ZombieSwimmer tab[1] = { ZombieSwimmer(5, 5, startenemy, 'E') };
 
     bool isRunning = true;
 
     // Boucle principale du jeu
     while (isRunning)
     {
-
-    
     }
     /*// Créer un ennemi par point d'apparition
     for (const Vector2 &spawn : map.GetEnemySpawns())
@@ -56,7 +54,7 @@ void Game::Run()
 
     // Un nageur peut entrer dans l'eau
     if (map.CanEnter(newPos, true))
-    { 
+    {
     }
 
     // Sortie atteinte ?
@@ -66,7 +64,6 @@ void Game::Run()
     }
     */
 
-
     // Main game loop
 
     // Display map , handle input, update entities, check collisions, etc.
@@ -74,5 +71,4 @@ void Game::Run()
     // entities.onupdate();
 
     // gameover();
-
 }

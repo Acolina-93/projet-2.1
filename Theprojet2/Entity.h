@@ -21,7 +21,7 @@ public:
     }
     int GetHP() const;
     int Maxhp() const;
-    virtual void Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy) = 0;
+    void Move(Vector2 &dir, const Map &map);
     Vector2 GetPosition() const;
     void applyDamage(int damage);
     bool isAlive() const;

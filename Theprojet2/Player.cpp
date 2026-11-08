@@ -29,7 +29,7 @@ Player::Direction Player::InputToDirection(int key)
     return NONE;
 }
 
-void Player::ApplyDirection(Direction direction, Vector2 &pos)
+void Player::ApplyDirection(Direction direction)
 {
 
     // Update the position based on the direction
@@ -38,22 +38,22 @@ void Player::ApplyDirection(Direction direction, Vector2 &pos)
     {
 
     case UP:
-        pos.y--;
+        position.y--;
         break;
     case DOWN:
-        pos.y++;
+        position.y++;
         break;
     case LEFT:
-        pos.x--;
+        position.x--;
         break;
     case RIGHT:
-        pos.x++;
+        position.x++;
         break;
     case NONE:
         break;
     }
 }
-
+/*
 void Player::Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy)
 {
    // Vector2 dir = Direction InputToDirection(int key);
@@ -72,11 +72,11 @@ void Player::Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy)
         return false;
 
     if (characterMoveCollision(character, newPos, characters))
-        return false;*/
+        return false;
 
     player.position = newPos;
 
-}
+}*/
 
 void Player::onUpdate()
 {
@@ -84,5 +84,5 @@ void Player::onUpdate()
     char key = _getch(); // Utilisation de _getch() pour capturer la touche pressée
     Direction direction = InputToDirection(key);
 
-    ApplyDirection(direction, playerPosition); // call after verify collision
+    ApplyDirection(direction); // call after verify collision
 }

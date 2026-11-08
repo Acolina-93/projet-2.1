@@ -22,10 +22,8 @@ public:
         NONE
     };
 
-    void Move(Player &player, Vector2 &dir, Map &map, Enemy &enemy);
-
     Direction InputToDirection(int key);
-    void ApplyDirection(Direction direction, Vector2 &pos);
+    void ApplyDirection(Direction direction);
 
     virtual void onUpdate();
 };

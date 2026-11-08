@@ -1,7 +1,7 @@
 #include "Entity.h"
-#include <iostream>
-
+#include "Map.h"
 #include "Vector2.h"
+#include <iostream>
 
 int Entity::GetHP() const
 {
@@ -13,7 +13,15 @@ int Entity::Maxhp() const
     return maxHp;
 }
 
+void Entity::Move(Vector2 &dir, const Map &map)
+{
 
+    Vector2 newPos = position + dir;
+    map.IsInside(newPos);
+    map.CanEnter(newPos, false);
+    
+    
+}
 Vector2 Entity::GetPosition() const
 {
     return position;

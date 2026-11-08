@@ -12,7 +12,6 @@ public:
 	void Run();
 
 private:
-    Map map;
 
 	Game(); // privé
 

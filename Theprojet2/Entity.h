@@ -27,10 +27,10 @@ public:
     {
         position = pos;
     }
-    int GetHP() const;
-    int Maxhp() const;
-    void Move(const Vector2 &dir, const Map &map);
-    Vector2 GetPosition() const;
+    int getHp() const;
+    int getmaxHp() const;
+    void move(const Vector2 &dir, const Map &map);
+    Vector2 getPosition() const;
     void applyDamage(int damage);
     bool isAlive() const;
     virtual void onUpdate() = 0;

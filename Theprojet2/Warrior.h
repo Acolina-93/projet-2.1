@@ -1,13 +1,13 @@
 #pragma once
 #include "Player.h"
 
-class Warrior : public Player
+class Warrior : virtual public Player
 {
 
 public:
-	Warrior(int hp, int maxHp, Vector2 pos, char cell) : Player(hp, maxHp, pos, cell)
-	{
-	}
+    Warrior(int hp, int maxHp, Vector2 pos, char cell) : Player(hp, maxHp, pos, cell)
+    {
+    }
 
-	void onCollision(Entity* other);
+    void onCollision(Entity *other);
 };

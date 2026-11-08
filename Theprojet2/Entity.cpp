@@ -3,32 +3,30 @@
 #include "Vector2.h"
 #include <iostream>
 
-int Entity::GetHP() const
+int Entity::getHp() const
 {
     return hp;
 }
 
-int Entity::Maxhp() const
+int Entity::getmaxHp() const
 {
     return maxHp;
 }
 
-void Entity::Move(const Vector2 &dir, const Map &map)
+void Entity::move(const Vector2 &dir, const Map &map)
 {
 
     Vector2 Newpos = position + dir;
 
-    if (!map.CanEnter(Newpos, false))
-    {
-    }
-    
-    else
+    if (map.CanEnter(Newpos, false))
     {
         position = Newpos;
     }
     
+  
+    
 }
-Vector2 Entity::GetPosition() const
+Vector2 Entity::getPosition() const
 {
     return position;
 }

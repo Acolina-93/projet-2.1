@@ -10,7 +10,7 @@ Game *Game::instance = nullptr;
 
 char Game::GetSymbolAt(Vector2 pos) const
 {
-    if (player != nullptr && player->isAlive() && player->GetPosition() == pos)
+    if (player != nullptr && player->isAlive() && player->getPosition() == pos)
     {
         return player->GetCell();
     }
@@ -23,15 +23,11 @@ Game ::Game()
 }
 Game *Game::getInstance()
 {
-
-    if (instance == nullptr)
-    {
-        instance = new Game();
-    }
-    return instance;
+    static Game instance;
+    return &instance;
 }
 
-void Game::Display()
+void Game::display()
 {
     system("cls");
     for (int y = 0; y < Map::HEIGHT; ++y)
@@ -44,7 +40,7 @@ void Game::Display()
     }
 }
 
-void Game::Run()
+void Game::run()
 {
 
     int currentLevel = 0;
@@ -54,24 +50,26 @@ void Game::Run()
     player = new Warrior(100, 100, map.GetPlayerStart(), 'W');
     bool isRunning = true;
 
+    display();
     // Boucle principale du jeu
     while (isRunning)
     {
-        Display();
+       
 
         if (player != nullptr && player->isAlive())
         {
-            player->onUpdate();
+            player->onUpdate(); // Attend la touche et déplace le joueur
+            display();
         }
         // TODO (Binôme) : Mettre à jour la liste des ennemis ici
 
-        if (player != nullptr && !player->isAlive())
+        else if (player != nullptr && !player->isAlive())
         {
-            Display();
+            display();
             std::cout << "\nGAME OVER !\n";
             isRunning = false;
         }
-        else if (player != nullptr && map.IsExit(player->GetPosition()))
+        else if (player != nullptr && map.IsExit(player->getPosition()))
         {
             currentLevel++;
             if (currentLevel < Map::LEVEL_COUNT)
@@ -81,18 +79,11 @@ void Game::Run()
             }
             else
             {
-                Display();
+                display();
                 std::cout << "\nVICTOIRE !\n";
                 isRunning = false;
             }
         }
     }
 
-    // Main game loop
-
-    // Display map , handle input, update entities, check collisions, etc.
-
-    // entities.onupdate();
-
-    // gameover();
 }

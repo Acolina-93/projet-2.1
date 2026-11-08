@@ -9,7 +9,7 @@ int main()
 
     Game *game = Game::getInstance();
 
-    game->Run();
+    game->run();
 
     // delete game;
     // on oublie pas de delete dans le destructeur

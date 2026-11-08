@@ -9,16 +9,17 @@ class Game
 
 public:
 	static Game* getInstance();
-	void Run();
+	void run();
     const Map &GetMap() const
     {
         return map;
     }
-    char GetSymbolAt(Vector2 pos) const;
-    void Display();
+   
    
 private:
     Map map;
+    char GetSymbolAt(Vector2 pos) const;
+    void display();
 	Game(); // privé
 
 	static Game* instance; // l'unique exemplaire

@@ -1,7 +1,7 @@
 #pragma once
 #include "Player.h"
 
-class Mage : public Player
+class Mage : virtual public Player
 {
 
 public:

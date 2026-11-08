@@ -71,7 +71,7 @@ void Game::run()
         }
         else if (player != nullptr && map.IsExit(player->getPosition()))
         {
-            currentLevel++;
+            ++currentLevel;
             if (currentLevel < Map::LEVEL_COUNT)
             {
                 map.Load(currentLevel);

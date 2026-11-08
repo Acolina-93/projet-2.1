@@ -16,11 +16,11 @@ int Entity::getmaxHp() const
 void Entity::move(const Vector2 &dir, const Map &map)
 {
 
-    Vector2 Newpos = position + dir;
+    Vector2 newPos = position + dir;
 
-    if (map.CanEnter(Newpos, false))
+    if (map.CanEnter(newPos, false))
     {
-        position = Newpos;
+        position = newPos;
     }
     
   

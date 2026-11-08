@@ -8,12 +8,6 @@ class Map;
 class Entity
 {
 
-protected:
-    int hp = 0;
-    int maxHp = 0;
-    char cell = 'E';
-    Vector2 position;
-
 public:
     Entity(int hp, int maxHp, Vector2 pos, char cell)
         : hp(hp), maxHp(maxHp), position(pos), cell(cell)
@@ -37,4 +31,10 @@ public:
     virtual void onCollision(Entity *other) = 0;
 
     virtual ~Entity() = default;
+
+protected:
+    int hp = 0;
+    int maxHp = 0;
+    char cell = 'E';
+    Vector2 position;
 };

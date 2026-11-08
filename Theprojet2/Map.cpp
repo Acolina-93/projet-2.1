@@ -18,7 +18,7 @@ const char *const LEVELS[Map::LEVEL_COUNT][Map::HEIGHT] = {
      "..X..............E.."}};
 }
 
-Map::Map() : PlayerStart(0, 0), ExitPos(0, 0)
+Map::Map() : playerStart(0, 0), exitPos(0, 0)
 {
 }
 
@@ -42,10 +42,10 @@ void Map::Load(int levelIndex)
                 break;
             case 'E':
                 Tiles[y][x] = Tile::Exit;
-                ExitPos = Vector2(x, y);
+                exitPos = Vector2(x, y);
                 break;
             case 'H':
-                PlayerStart = Vector2(x, y);
+                playerStart = Vector2(x, y);
                 break;
             case 'X':
                 EnemySpawns.push_back(Vector2(x, y));
@@ -103,7 +103,7 @@ char Map::GetTileChar(Vector2 pos) const
 
 Vector2 Map::GetPlayerStart() const
 {
-    return PlayerStart;
+    return playerStart;
 }
 
 const std::vector<Vector2> &Map::GetEnemySpawns() const

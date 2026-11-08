@@ -29,8 +29,8 @@ public:
 
 private:
     Tile Tiles[HEIGHT][WIDTH]{};
-	Vector2 PlayerStart;
-	Vector2 ExitPos;
+	Vector2 playerStart;
+	Vector2 exitPos;
 	std::vector<Vector2> EnemySpawns;
 };
 

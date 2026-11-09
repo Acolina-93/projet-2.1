@@ -6,6 +6,6 @@
 
 void Mage::onCollision(Entity *other)
 {
-    // Implement Mage-specific collision logic here
-    // If the Mage collides with an enemy, he lost 1 hp
+    applyDamage(1); 
+   
 }

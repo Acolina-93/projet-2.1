@@ -42,7 +42,7 @@ void Game::run()
     int currentLevel = 0;
     map.Load(currentLevel);
 
-    player = new Warrior(5, 5, map.GetPlayerStart(), 'W');
+    player = new Warrior(map.GetPlayerStart());
     bool isRunning = true;
 
     display();

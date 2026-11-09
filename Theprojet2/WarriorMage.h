@@ -5,9 +5,10 @@
 class WarriorMage : public Warrior, public Mage
 {
 public:
-    WarriorMage(int hp, int maxHp, Vector2 pos, char cell)
-        : Player(hp, maxHp, pos, cell), Warrior(hp, maxHp, pos, cell),
-          Mage(hp, maxHp, pos, cell)
+
+    WarriorMage( Vector2 pos)
+        : Player(hp, maxHp, pos, cell), Warrior(pos),
+          Mage(pos)
     {
     }
 
@@ -16,4 +17,9 @@ public:
         Warrior::onCollision(
             other); // Résout l'ambiguïté de méthode entre Warrior et Mage
     }
+
+protected:
+    int hp = 3;
+    int maxHp = 3;
+    char cell = 'B';
 };

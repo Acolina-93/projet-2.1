@@ -4,8 +4,7 @@
 #include <conio.h> // Indispensable pour _kbhit() et _getch()
 #include <iostream>
 
-void Mage::onCollision(Entity *other)
+void Mage::onCollision(Entity *)
 {
-    applyDamage(1); 
-   
+    applyDamage(1);
 }

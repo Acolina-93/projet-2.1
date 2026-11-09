@@ -5,17 +5,14 @@ class Mage : virtual public Player
 {
 
 public:
-	Mage(Vector2 pos) : Player(hp, maxHp, pos, cell)
-	{
-	}
+    Mage(Vector2 pos) : Player(HP, MAX_HP, pos, cell)
+    {
+    }
 
+    void onCollision(Entity *other) override;
 
-	void onCollision(Entity* other) override;
-
-protected:
-    int hp = 1;
-    int maxHp = 1;
+private:
+    static constexpr int HP = 1;
+    static constexpr int MAX_HP = 1;
     char cell = 'M';
-
-
 };

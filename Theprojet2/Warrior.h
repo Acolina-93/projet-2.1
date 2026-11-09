@@ -5,15 +5,16 @@ class Warrior : virtual public Player
 {
 
 public:
-    Warrior( Vector2 pos) : Player(hp, maxHp, pos, cell)
+    Warrior(Vector2 pos) : Player(HP, MAX_HP, pos, cell)
     {
     }
 
     void onCollision(Entity *other) override;
 
-protected:
-
-    int hp = 3;
-    int maxHp = 3;
+private:
     char cell = 'W';
+
+protected:
+    static constexpr int HP = 3;
+    static constexpr int MAX_HP = 3;
 };

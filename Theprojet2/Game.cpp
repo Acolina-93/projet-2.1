@@ -36,7 +36,7 @@ void Game::display()
     }
 }
 
-// CODE CORRIGÉ
+
 void Game::run()
 {
     int currentLevel = 0;
@@ -54,7 +54,7 @@ void Game::run()
             player->onUpdate();
             display();
 
-            // Vérification de la sortie au même tour
+       
             if (map.IsExit(player->getPosition()))
             {
                 ++currentLevel;

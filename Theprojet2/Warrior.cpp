@@ -6,6 +6,5 @@
 void Warrior::onCollision(Entity *other)
 {
     applyDamage(1);
-    applyDamage(other->getHp()); 
-
+    other->applyDamage(1);
 }

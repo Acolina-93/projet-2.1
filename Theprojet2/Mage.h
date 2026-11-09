@@ -14,5 +14,5 @@ public:
 private:
     static constexpr int HP = 1;
     static constexpr int MAX_HP = 1;
-    char cell = 'M';
+    static constexpr char cell = 'M';
 };

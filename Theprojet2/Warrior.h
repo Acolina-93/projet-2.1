@@ -11,10 +11,8 @@ public:
 
     void onCollision(Entity *other) override;
 
-private:
-    char cell = 'W';
-
 protected:
     static constexpr int HP = 3;
     static constexpr int MAX_HP = 3;
+    static constexpr char cell = 'W';
 };

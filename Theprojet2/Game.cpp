@@ -1,12 +1,13 @@
 #include "Game.h"
+#include "HeadlessZombie.h"
 #include "Mage.h"
 #include "Player.h"
 #include "Warrior.h"
-#include <iostream>
-#include "HeadlessZombie.h"
+#include "WarriorMage.h"
 #include "ZombieSwimmer.h"
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
 Game *Game::instance = nullptr;
 
@@ -16,7 +17,7 @@ char Game::GetSymbolAt(Vector2 pos) const
     {
         return player->GetCell();
     }
-    for (const Enemy* enemy : enemies)
+    for (const Enemy *enemy : enemies)
     {
         if (enemy->isAlive() && enemy->getPosition() == pos)
         {
@@ -47,6 +48,29 @@ void Game::display()
     }
 }
 
+void Game::goToNextLevel()
+{
+    ++currentLevel;
+    if (currentLevel < Map::LEVEL_COUNT)
+    {
+        map.Load(currentLevel);
+        player->SetPosition(map.GetPlayerStart());
+        display();
+    }
+    else
+    {
+        display();
+        std::cout << "\nVICTOIRE !\n";
+        isRunning = false;
+    }
+}
+
+void Game::endGame()
+{
+    display();
+    std::cout << "\nGAME OVER !\n";
+    isRunning = false;
+}
 
 void Game::run()
 {
@@ -56,38 +80,19 @@ void Game::run()
     player = new Warrior(map.GetPlayerStart());
     bool isRunning = true;
 
-    display();
-
     while (isRunning)
     {
-        if (player != nullptr && player->isAlive())
-        {
-            player->onUpdate();
-            display();
+        display();
+        player->onUpdate();
 
-       
-            if (map.IsExit(player->getPosition()))
-            {
-                ++currentLevel;
-                if (currentLevel < Map::LEVEL_COUNT)
-                {
-                    map.Load(currentLevel);
-                    player->SetPosition(map.GetPlayerStart());
-                    display();
-                }
-                else
-                {
-                    display();
-                    std::cout << "\nVICTOIRE !\n";
-                    isRunning = false;
-                }
-            }
-        }
-        else if (player != nullptr && !player->isAlive())
+        if (player != nullptr && !player->isAlive())
         {
-            display();
-            std::cout << "\nGAME OVER !\n";
-            isRunning = false;
+            endGame();
+        }
+
+        else if (map.IsExit(player->getPosition()))
+        {
+            goToNextLevel();
         }
     }
 }

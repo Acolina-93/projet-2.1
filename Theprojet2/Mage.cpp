@@ -23,10 +23,25 @@ void Mage::onUpdate()
     }
 }
 
-void Mage::castSpell(Entity *target)
+void Mage::castSpell()
 {
-    if (target != nullptr && target->isAlive())
+    for (Enemy *enemy : Game::getInstance()->getEnemies())
     {
-        target->applyDamage(1);
+        if (enemy != nullptr && enemy->isAlive())
+        {
+            Vector2 ePos = enemy->getPosition();
+            int dx = std::abs(ePos.x - position.x);
+            int dy = std::abs(ePos.y - position.y);
+
+            // Vérifie si l'ennemi est sur l'une des 4 cases adjacentes (haut, bas,
+            // gauche, droite)
+            if (dx + dy == 1)
+            {
+                enemy->applyDamage(
+                    enemy->getHp()); // Inflige tous ses PV restants pour le tuer
+            }
+        }
     }
 }
+
+ 

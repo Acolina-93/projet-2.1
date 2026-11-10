@@ -9,6 +9,10 @@ class Game
 {
 
 public:
+    const std::vector<Enemy *> &getEnemies() const
+    {
+        return enemies;
+    }
     static Game *getInstance();
     void run();
     const Map &getMap() const
@@ -32,7 +36,7 @@ private:
     void goToNextLevel();
     void endGame();
     void display();
-    Game(); 
+    Game();
 
     Player *player = nullptr;
 

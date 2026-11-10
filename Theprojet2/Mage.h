@@ -12,7 +12,7 @@ public:
     void onCollision(Entity *other) override;
 
 private:
-    void castSpell(Entity *target);
+    void castSpell();
     static constexpr int HP = 1;
     static constexpr int MAX_HP = 1;
     static constexpr char SYMBOL = 'M';

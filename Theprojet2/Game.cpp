@@ -3,6 +3,10 @@
 #include "Player.h"
 #include "Warrior.h"
 #include <iostream>
+#include "HeadlessZombie.h"
+#include "ZombieSwimmer.h"
+#include <cstdlib>
+#include <ctime>
 
 Game *Game::instance = nullptr;
 
@@ -11,6 +15,13 @@ char Game::GetSymbolAt(Vector2 pos) const
     if (player != nullptr && player->isAlive() && player->getPosition() == pos)
     {
         return player->GetCell();
+    }
+    for (const Enemy* enemy : enemies)
+    {
+        if (enemy->isAlive() && enemy->getPosition() == pos)
+        {
+            return enemy->GetCell();
+        }
     }
     return map.GetTileChar(pos);
 }

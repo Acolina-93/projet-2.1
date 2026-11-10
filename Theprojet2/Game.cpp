@@ -9,17 +9,17 @@
 #include <ctime>
 #include <iostream>
 
-char Game::GetSymbolAt(Vector2 pos) const
+char Game::getSymbolAt(Vector2 pos) const
 {
     if (player != nullptr && player->isAlive() && player->getPosition() == pos)
     {
-        return player->GetCell();
+        return player->getCell();
     }
     for (const Enemy *enemy : enemies)
     {
         if (enemy->isAlive() && enemy->getPosition() == pos)
         {
-            return enemy->GetCell();
+            return enemy->getCell();
         }
     }
     return map.GetTileChar(pos);
@@ -42,7 +42,7 @@ void Game::display()
     {
         for (int x = 0; x < Map::WIDTH; ++x)
         {
-            std::cout << GetSymbolAt(Vector2(x, y));
+            std::cout << getSymbolAt(Vector2(x, y));
         }
         std::cout << '\n';
     }
@@ -54,7 +54,7 @@ void Game::goToNextLevel()
     if (currentLevel < Map::LEVEL_COUNT)
     {
         map.Load(currentLevel);
-        player->SetPosition(map.GetPlayerStart());
+        player->setPosition(map.GetPlayerStart());
         display();
     }
     else

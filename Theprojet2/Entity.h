@@ -1,8 +1,5 @@
 #pragma once
 #include "Vector2.h"
-
-class Player;
-class Enemy;
 class Map;
 
 class Entity
@@ -13,16 +10,16 @@ public:
         : hp(hp), maxHp(maxHp), position(pos), cell(cell)
     {
     }
-    char GetCell() const
+    char getCell() const
     {
         return cell;
     }
-    void SetPosition(Vector2 pos)
+    void setPosition(Vector2 pos)
     {
         position = pos;
     }
     int getHp() const;
-    int getmaxHp() const;
+    int getMaxHp() const;
     void move(const Vector2 &dir, const Map &map);
     Vector2 getPosition() const;
     void applyDamage(int damage);
@@ -39,6 +36,6 @@ public:
 protected:
     int hp = 0;
     int maxHp = 0;
-    char cell = 'E';
     Vector2 position;
+    char cell = 'E';
 };

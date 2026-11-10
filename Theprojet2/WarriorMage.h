@@ -12,8 +12,7 @@ public:
 
     void onCollision(Entity *other) override
     {
-        Warrior::onCollision(
-            other); // Résout l'ambiguïté de méthode entre Warrior et Mage
+        Warrior::onCollision(other);
     }
 
 private:

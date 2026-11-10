@@ -11,17 +11,23 @@ public:
     {
     }
 
-    enum Direction
+    enum PlayerInput
     {
         UP = 0,
         DOWN,
         LEFT,
         RIGHT,
+        ACTION,
         NONE
     };
 
-    Direction inputToDirection(char key);
-    Vector2 directionToVector(Direction direction);
+    PlayerInput inputToDirection(char key);
+    Vector2 directionToVector(PlayerInput input);
 
     void onUpdate() override;
+
+protected:
+
+    PlayerInput readInput();
+    Vector2 moveFromInput(PlayerInput input);
 };

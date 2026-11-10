@@ -28,7 +28,7 @@ private:
     void clearEnemies();
     void updateEnemies();
     void checkCollisions();
-    void removeDeadEnemies();
+    void enemiesTurn();
     void goToNextLevel();
     void endGame();
     void display();

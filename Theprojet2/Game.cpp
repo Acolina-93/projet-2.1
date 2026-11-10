@@ -106,20 +106,10 @@ void Game::checkCollisions()
     }
 }
 
-void Game::removeDeadEnemies()
+void Game::enemiesTurn()
 {
-    for (auto it = enemies.begin(); it != enemies.end();)
-    {
-        if (!(*it)->isAlive())
-        {
-            delete *it;
-            it = enemies.erase(it);
-        }
-        else
-        {
-            ++it;
-        }
-    }
+    updateEnemies();
+    checkCollisions();
 }
 
 void Game::goToNextLevel()
@@ -161,6 +151,8 @@ void Game::run()
     {
         display();
         player->onUpdate();
+        checkCollisions();
+        enemiesTurn();
 
         if (player != nullptr && !player->isAlive())
         {

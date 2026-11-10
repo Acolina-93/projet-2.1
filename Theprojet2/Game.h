@@ -3,6 +3,9 @@
 #include "Player.h"
 #include "Vector2.h"
 #include "Map.h"
+#include <vector>
+
+class Enemy;
 
 class Game
 {
@@ -18,6 +21,7 @@ public:
    
 private:
     Map map;
+    std::vector<Enemy *> enemies;
     char GetSymbolAt(Vector2 pos) const;
     void display();
 	Game(); // privé

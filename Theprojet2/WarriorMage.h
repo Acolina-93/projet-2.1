@@ -6,7 +6,7 @@ class WarriorMage : public Warrior, public Mage
 {
 public:
     WarriorMage(Vector2 pos)
-        : Player(Warrior::HP, Warrior::MAX_HP, pos, cell), Warrior(pos), Mage(pos)
+        : Player(Warrior::HP, Warrior::MAX_HP, pos, SYMBOL), Warrior(pos), Mage(pos)
     {
     }
 
@@ -17,5 +17,5 @@ public:
     }
 
 private:
-    char cell = 'N';
+    static constexpr char SYMBOL = 'N';
 };

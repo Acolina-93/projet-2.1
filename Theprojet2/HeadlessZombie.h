@@ -9,4 +9,6 @@ public:
     {
     }
 
+protected:
+    Vector2 chooseDirection() override;
 };

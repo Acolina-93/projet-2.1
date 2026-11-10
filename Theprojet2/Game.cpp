@@ -9,8 +9,6 @@
 #include <ctime>
 #include <iostream>
 
-Game *Game::instance = nullptr;
-
 char Game::GetSymbolAt(Vector2 pos) const
 {
     if (player != nullptr && player->isAlive() && player->getPosition() == pos)
@@ -26,9 +24,11 @@ char Game::GetSymbolAt(Vector2 pos) const
     }
     return map.GetTileChar(pos);
 }
-Game ::Game()
+Game::Game()
 {
+    srand(static_cast<unsigned int>(time(nullptr)));
 }
+
 Game *Game::getInstance()
 {
     static Game instance;

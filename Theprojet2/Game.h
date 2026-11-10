@@ -17,6 +17,8 @@ public:
     {
         return map;
     }
+    Game(const Game &) = delete; 
+    Game &operator=(const Game &) = delete;
 
 private:
     Map map;
@@ -29,7 +31,7 @@ private:
     void display();
     Game(); // privé
 
-    static Game *instance; // l'unique exemplaire
+
 
     Player *player = nullptr;
 

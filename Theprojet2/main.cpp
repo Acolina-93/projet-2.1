@@ -11,7 +11,5 @@ int main()
 
     game->run();
 
-    // delete game;
-    // on oublie pas de delete dans le destructeur
     return 0;
 }

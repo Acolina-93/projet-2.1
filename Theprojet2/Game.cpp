@@ -68,6 +68,7 @@ void Game::goToNextLevel()
 void Game::endGame()
 {
     display();
+    system("cls");
     std::cout << "\nGAME OVER !\n";
     isRunning = false;
 }
@@ -78,7 +79,7 @@ void Game::run()
     map.Load(currentLevel);
 
     player = new Warrior(map.GetPlayerStart());
-    bool isRunning = true;
+    isRunning = true;
 
     while (isRunning)
     {

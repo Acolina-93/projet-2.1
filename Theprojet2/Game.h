@@ -24,6 +24,11 @@ private:
     bool isRunning = false;
     std::vector<Enemy *> enemies;
     char getSymbolAt(Vector2 pos) const;
+    void spawnEnemies();
+    void clearEnemies();
+    void updateEnemies();
+    void checkCollisions();
+    void removeDeadEnemies();
     void goToNextLevel();
     void endGame();
     void display();
@@ -33,6 +38,7 @@ private:
 
     ~Game()
     {
+        clearEnemies();
         delete player;
     }
 };

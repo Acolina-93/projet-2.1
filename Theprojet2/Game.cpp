@@ -48,12 +48,88 @@ void Game::display()
     }
 }
 
+void Game::spawnEnemies()
+{
+    for (const Vector2 &spawnPos : map.GetEnemySpawns())
+    {
+        int enemyType = std::rand() % 3;
+        Enemy *enemy = nullptr;
+        switch (enemyType)
+        {
+        case 0:
+            enemy = new HeadlessZombie(2, 2, spawnPos, 'H');
+            break;
+        case 1:
+            enemy = new ZombieSwimmer(spawnPos);
+            break;
+        case 2:
+            enemy = new HeadlessZombie(3, 3, spawnPos, 'Z');
+            break;
+        }
+        if (enemy != nullptr)
+        {
+            enemies.push_back(enemy);
+        }
+    }
+}
+
+void Game::clearEnemies()
+{
+    for (Enemy *enemy : enemies)
+    {
+        delete enemy;
+    }
+    enemies.clear();
+}
+
+void Game::updateEnemies()
+{
+    for (Enemy *enemy : enemies)
+    {
+        if (enemy->isAlive())
+        {
+            enemy->onUpdate();
+        }
+    }
+}
+
+void Game::checkCollisions()
+{
+    for (Enemy *enemy : enemies)
+    {
+        if (enemy->isAlive() && player->isAlive() &&
+            enemy->getPosition() == player->getPosition())
+        {
+            player->onCollision(enemy);
+            enemy->onCollision(player);
+        }
+    }
+}
+
+void Game::removeDeadEnemies()
+{
+    for (auto it = enemies.begin(); it != enemies.end();)
+    {
+        if (!(*it)->isAlive())
+        {
+            delete *it;
+            it = enemies.erase(it);
+        }
+        else
+        {
+            ++it;
+        }
+    }
+}
+
 void Game::goToNextLevel()
 {
     ++currentLevel;
     if (currentLevel < Map::LEVEL_COUNT)
     {
         map.Load(currentLevel);
+        clearEnemies();
+        spawnEnemies();
         player->setPosition(map.GetPlayerStart());
         display();
     }
@@ -77,7 +153,7 @@ void Game::run()
 {
     int currentLevel = 0;
     map.Load(currentLevel);
-
+    spawnEnemies();
     player = new Warrior(map.GetPlayerStart());
     isRunning = true;
 

@@ -18,7 +18,7 @@ void Entity::move(const Vector2 &dir, const Map &map)
 
     Vector2 newPos = position + dir;
 
-    if (map.CanEnter(newPos, false))
+    if (map.CanEnter(newPos, canSwim()))
     {
         position = newPos;
     }

@@ -27,6 +27,10 @@ public:
     Vector2 getPosition() const;
     void applyDamage(int damage);
     bool isAlive() const;
+    virtual bool canSwim() const
+    {
+        return false;
+    }
     virtual void onUpdate() = 0;
     virtual void onCollision(Entity *other) = 0;
 

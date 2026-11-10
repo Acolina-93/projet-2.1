@@ -1,3 +1,33 @@
 #include "Enemy.h"
 #include <iostream>
 #include "Vector2.h"
+#include "Game.h"
+#include <cstdlib>
+
+void Enemy::onUpdate()
+{
+    move(chooseDirection(), Game::getInstance()->GetMap());
+}
+
+void Enemy::onCollision(Entity*)
+{
+
+}
+
+Vector2 Enemy::randomDirection()
+{
+    switch (std::rand() % 5)
+    {
+    case 0:
+        return Vector2(0, -1); 
+    case 1:
+        return Vector2(0, 1);
+    case 2:
+        return Vector2(-1, 0);
+    case 3:
+        return Vector2(1, 0);
+    default:
+        return Vector2(0, 0);
+
+    }
+}

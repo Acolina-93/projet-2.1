@@ -14,12 +14,11 @@ public:
         return true;
     }
 
-    protected:
+protected:
     Vector2 chooseDirection() override;
 
-    private:
+private:
     static constexpr int hp = 2;
     static constexpr int maxHp = 2;
     static constexpr char cell = 'S';
-
 };

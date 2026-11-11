@@ -5,8 +5,6 @@
 Player::PlayerInput Player::inputToDirection(char key)
 {
 
-    // Map the input key to a direction
-
     switch (key)
     {
     case 'z':
@@ -46,6 +44,7 @@ Vector2 Player::directionToVector(PlayerInput input)
     case NONE:
         return Vector2(0, 0);
     }
+    return Vector2(0, 0);
 }
 
 Player::PlayerInput Player::readInput()
@@ -62,8 +61,7 @@ Vector2 Player::moveFromInput(PlayerInput input)
 }
 void Player::onUpdate()
 {
-    char key = _getch();
-    readInput();
-    moveFromInput(inputToDirection(key));
-  
+
+    PlayerInput input = readInput();
+    moveFromInput(input);
 }

@@ -5,14 +5,15 @@ class Mage : virtual public Player
 {
 
 public:
-    Mage(Vector2 pos) : Player(HP, MAX_HP, pos, cell)
+    Mage(Vector2 pos) : Player(HP, MAX_HP, pos, SYMBOL)
     {
     }
-
+    void onUpdate() override;
     void onCollision(Entity *other) override;
 
 private:
+    void castSpell();
     static constexpr int HP = 1;
     static constexpr int MAX_HP = 1;
-    static constexpr char cell = 'M';
+    static constexpr char SYMBOL = 'M';
 };

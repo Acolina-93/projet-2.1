@@ -1,9 +1,8 @@
 #include "Player.h"
 #include "Game.h"
-#include <conio.h> // Indispensable pour _kbhit() et _getch()
-#include <iostream>
+#include <conio.h>
 
-Player::Direction Player::InputToDirection(char key)
+Player::PlayerInput Player::inputToDirection(char key)
 {
 
     // Map the input key to a direction
@@ -22,16 +21,16 @@ Player::Direction Player::InputToDirection(char key)
     case 'd':
     case 'D':
         return RIGHT;
+    case ' ':
+        return ACTION;
     }
     return NONE;
 }
 
-Vector2 Player::DirectionToVector(Direction direction)
+Vector2 Player::directionToVector(PlayerInput input)
 {
 
-    // Update the position based on the direction
-
-    switch (direction)
+    switch (input)
     {
 
     case UP:
@@ -42,16 +41,29 @@ Vector2 Player::DirectionToVector(Direction direction)
         return Vector2(-1, 0);
     case RIGHT:
         return Vector2(1, 0);
+    case ACTION:
+        return Vector2(0, 0);
     case NONE:
         return Vector2(0, 0);
     }
-    return Vector2(0, 0);
 }
 
+Player::PlayerInput Player::readInput()
+{
+    char key = _getch();
+    return inputToDirection(key);
+}
+
+Vector2 Player::moveFromInput(PlayerInput input)
+{
+    Vector2 dir = directionToVector(input);
+    move(dir, Game::getInstance()->getMap());
+    return dir;
+}
 void Player::onUpdate()
 {
     char key = _getch();
-    Direction direction = InputToDirection(key);
-    Vector2 dir = DirectionToVector(direction);
-    move(dir, Game::getInstance()->GetMap());
+    readInput();
+    moveFromInput(inputToDirection(key));
+  
 }

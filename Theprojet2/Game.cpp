@@ -189,7 +189,7 @@ void Game::goToNextLevel()
 void Game::endGame()
 {
     display();
-    system("cls");
+   
     std::cout << "\nGAME OVER !\n";
     isRunning = false;
 }
@@ -197,9 +197,13 @@ void Game::endGame()
 
 void Game::run()
 {
+<<<<<<< HEAD
     std::srand(static_cast<unsigned>(std::time(nullptr)));
 
     int currentLevel = 0;
+=======
+    currentLevel = 0;
+>>>>>>> a1fbc39b88dd73b56f69c2b143fb5e926302bae3
     map.Load(currentLevel);
     spawnEnemies();
 <<<<<<< HEAD

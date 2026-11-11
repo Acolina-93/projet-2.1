@@ -6,16 +6,15 @@ class WarriorMage : public Warrior, public Mage
 {
 public:
     WarriorMage(Vector2 pos)
-        : Player(Warrior::HP, Warrior::MAX_HP, pos, cell), Warrior(pos), Mage(pos)
+        : Player(Warrior::HP, Warrior::MAX_HP, pos, SYMBOL), Warrior(pos), Mage(pos)
     {
     }
 
     void onCollision(Entity *other) override
     {
-        Warrior::onCollision(
-            other); // Résout l'ambiguïté de méthode entre Warrior et Mage
+        Warrior::onCollision(other);
     }
 
 private:
-    char cell = 'N';
+    static constexpr char SYMBOL = 'N';
 };

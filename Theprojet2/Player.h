@@ -27,4 +27,6 @@ public:
     Vector2 DirectionToVector(Direction direction);
 
    void onUpdate() override;
+
+    Player() = default;
 };

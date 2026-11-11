@@ -1,4 +1,5 @@
 #include "Mage.h"
+#include "Enemy.h"
 #include "Entity.h"
 #include "Game.h"
 #include <conio.h>
@@ -30,18 +31,16 @@ void Mage::castSpell()
         if (enemy != nullptr && enemy->isAlive())
         {
             Vector2 ePos = enemy->getPosition();
-            int dx = std::abs(ePos.x - position.x);
-            int dy = std::abs(ePos.y - position.y);
 
-            // Vérifie si l'ennemi est sur l'une des 4 cases adjacentes (haut, bas,
-            // gauche, droite)
-            if (dx + dy == 1)
+            bool aGauche = (ePos.x == position.x - 1 && ePos.y == position.y);
+            bool aDroite = (ePos.x == position.x + 1 && ePos.y == position.y);
+            bool enHaut = (ePos.x == position.x && ePos.y == position.y - 1);
+            bool enBas = (ePos.x == position.x && ePos.y == position.y + 1);
+
+            if (aGauche || aDroite || enHaut || enBas)
             {
-                enemy->applyDamage(
-                    enemy->getHp()); // Inflige tous ses PV restants pour le tuer
+                enemy->applyDamage(1);
             }
         }
     }
 }
-
- 

@@ -3,6 +3,8 @@
 #include "Player.h"
 #include "Vector2.h"
 #include "Map.h"
+#include "Enemy.h"
+#include <vector>
 
 class Game
 {
@@ -14,6 +16,10 @@ public:
     {
         return map;
     }
+    const Player* GetPlayer() const
+    {
+        return player;
+    }
    
    
 private:
@@ -22,12 +28,19 @@ private:
     void display();
 	Game(); // privé
 
+	void spawnEnemies();
+    void clearEnemies();
+    void updateEnemies();
+    void resolveCollisions();
+
 	static Game* instance; // l'unique exemplaire
 
 	Player* player = nullptr;
+    std::vector<Enemy *> enemies;
 
 	~Game()
 	{
+        clearEnemies();
 		delete player;
 	}
 };

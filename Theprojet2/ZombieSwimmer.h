@@ -19,7 +19,7 @@ public:
 
     private:
     static constexpr int hp = 2;
-        static constexpr int maxHp = 2;
+    static constexpr int maxHp = 2;
     static constexpr char cell = 'S';
 
 };

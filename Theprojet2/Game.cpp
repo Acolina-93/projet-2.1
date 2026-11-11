@@ -130,28 +130,21 @@ void Game::endGame()
 
 void Game::run()
 {
-
     currentLevel = 0;
-
     map.Load(currentLevel);
     spawnEnemies();
-
     player = new Warrior(map.GetPlayerStart());
     isRunning = true;
-
     while (isRunning)
     {
         display();
         player->onUpdate();
         checkCollisions();
         enemiesTurn();
-
         if (player != nullptr && !player->isAlive())
-            
         {
             endGame();
         }
-
         else if (map.IsExit(player->getPosition()))
         {
             goToNextLevel();

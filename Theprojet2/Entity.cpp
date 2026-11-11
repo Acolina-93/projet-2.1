@@ -1,6 +1,6 @@
 #include "Entity.h"
 #include "Map.h"
-#include "Vector2.h"
+
 
 int Entity::getHp() const
 {

@@ -1,6 +1,5 @@
 #include "Warrior.h"
-#include "Player.h"
-#include "Vector2.h"
+
 
 
 void Warrior::onCollision(Entity *other)

@@ -1,7 +1,5 @@
 #pragma once
 #include "Vector2.h"
-#include <cstdlib>
-#include <iostream>
 #include <vector>
 
 enum class Tile

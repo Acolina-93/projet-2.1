@@ -2,7 +2,7 @@
 #include "Game.h"
 #include "Vector2.h"
 #include <cstdlib>
-#include <iostream>
+
 
 void Enemy::onUpdate()
 {

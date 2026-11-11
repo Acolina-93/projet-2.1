@@ -134,14 +134,14 @@ void Game::goToNextLevel()
 void Game::endGame()
 {
     display();
-    system("cls");
+   
     std::cout << "\nGAME OVER !\n";
     isRunning = false;
 }
 
 void Game::run()
 {
-    int currentLevel = 0;
+    currentLevel = 0;
     map.Load(currentLevel);
     spawnEnemies();
     player = new Warrior(map.GetPlayerStart());

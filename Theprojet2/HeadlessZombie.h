@@ -4,9 +4,15 @@
 class HeadlessZombie : public Enemy
 {
 public:
-    HeadlessZombie(int hp, int maxHp, Vector2 pos, char cell)
-        : Enemy(hp, maxHp, pos, cell)
+    HeadlessZombie(Vector2 pos) : Enemy(hp, maxHp, pos, cell)
     {
     }
 
+    protected:
+    Vector2 chooseDirection() override;
+
+    private:
+    static constexpr int hp = 2;
+    static constexpr int maxHp = 2;
+    static constexpr char cell = 'Z';
 };

@@ -136,7 +136,6 @@
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Warrior.cpp" />
-    <ClCompile Include="WarriorMage.cpp" />
     <ClCompile Include="ZombieSwimmer.cpp" />
   </ItemGroup>
   <ItemGroup>

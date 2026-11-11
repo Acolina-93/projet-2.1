@@ -1,14 +1,9 @@
 #pragma once
 #include "Map.h"
-<<<<<<< HEAD
-#include "Enemy.h"
-#include <vector>
-=======
 #include "Player.h"
 #include <vector>
 
 class Enemy;
->>>>>>> 41774d1a53d0a60c3a99b422a6e1ae0041aebf61
 
 class Game
 {
@@ -24,18 +19,9 @@ public:
     {
         return map;
     }
-<<<<<<< HEAD
-    const Player* GetPlayer() const
-    {
-        return player;
-    }
-   
-   
-=======
     Game(const Game &) = delete;
     Game &operator=(const Game &) = delete;
 
->>>>>>> 41774d1a53d0a60c3a99b422a6e1ae0041aebf61
 private:
     Map map;
     int currentLevel = 0;
@@ -52,23 +38,6 @@ private:
     void display();
     Game();
 
-<<<<<<< HEAD
-	void spawnEnemies();
-    void clearEnemies();
-    void updateEnemies();
-    void resolveCollisions();
-
-	static Game* instance; // l'unique exemplaire
-
-	Player* player = nullptr;
-    std::vector<Enemy *> enemies;
-
-	~Game()
-	{
-        clearEnemies();
-		delete player;
-	}
-=======
     Player *player = nullptr;
 
     ~Game()
@@ -76,5 +45,4 @@ private:
         clearEnemies();
         delete player;
     }
->>>>>>> 41774d1a53d0a60c3a99b422a6e1ae0041aebf61
 };

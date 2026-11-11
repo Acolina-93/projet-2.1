@@ -24,16 +24,9 @@ public:
     PlayerInput inputToDirection(char key);
     Vector2 directionToVector(PlayerInput input);
 
-<<<<<<< HEAD
-   void onUpdate() override;
-
-    Player() = default;
-=======
     void onUpdate() override;
 
 protected:
-
     PlayerInput readInput();
     Vector2 moveFromInput(PlayerInput input);
->>>>>>> 41774d1a53d0a60c3a99b422a6e1ae0041aebf61
 };
